@@ -3,7 +3,6 @@
 ## Learning Goals
 
 - Define and distinguish `puts` from `print`
-- Recognize the `print f` method
 - Recognize the difference between `p` and other print methods
 
 ## Introduction
@@ -15,7 +14,7 @@ keyword `puts` in order to display text in the console, but we can also use
 We'll cover how the `puts` and `print` commands display Ruby code in the console,
 and its limitations.
 
-## Define and distinguish `puts` from `print`
+## Define and Distinguish `puts` From `print`
 
 The `puts` (short for "out**put s**tring") and `print` commands are both used to
 display the results of evaluating Ruby code in the console. The primary
@@ -45,87 +44,62 @@ puts_hello
 #  => nil
 ```
 
-The methods `puts` and `print` explicitly tell Ruby to display text output.
+The methods `puts` and `print` tell the program to display specific information.
 Without `puts` or `print`, Ruby will evaluate the code, but does not display
 anything in the console.
 
-## Recognize the `printf` Method
+You can also see `nil` after the text is printed in the command line. This is
+the _return value_. The return value is the object returned by a Ruby method,
+but when we use `puts` and `print`, we are returned `nil`, or "nothing".
 
-The `printf` method is similar to `print`, however it has a number of
-[formatting options]. This is a more advanced concept derived from other
-programming languages such as C. However, in the future, as you work with more
-numbers that may have decimal values (floats), such as monetary calculations,
-`puts` may not work as expected:
-
-```ruby
-def discount_calculator(price)
-  discount = 0.10
-  sale_price = price - (discount * price)
-  puts "The sale price is $#{sale_price}."
-end
-
-discount_calculator(15)
-# > The sale price is $13.5.
-```
-
-This may not look too bad, but the issue here is we don't see two digits after
-the decimal point; we would rather display "$13.50", which is standard
-formatting for money. Ruby provides you a solution for this sort of problem:
-
-To get complete control over your output, you need to master the `printf`
-method. With `puts`, we used a format called "interpolation" to combine the
-variables with the string we wanted to output. In `printf`, we separate the
-string from the variables by:
-- First, giving the format string that displays text
-- And next, "placeholder" information that will fill in the variable values into
-  the placeholders
-
-Think of it like the ["Mad Libs"] game, where you fill in the blanks. The format
-string is followed by the items that fill in the blanks.
-
-The placeholders always begin with a `%`. The letter following the placeholder
-(often called a conversion character) tells it what kind of data you are filling
-in. The most popular conversion characters are `%s` for a `string`, `%d` for an
-`integer`, and `%f`for a float.
-
-So, instead of a `puts`, you would use `printf` like this.
-
-```ruby
-def discount_calculator(price)
-  discount = 0.10
-  sale_price = price - (discount * price)
-  printf("The sale price is $%f.\n", sale_price)
-end
-
-discount_calculator(15)
-# > The sale price is $13.500000.
-```
-
-Like `print`, the `printf` method does not automatically add a newline after
-your data is printed; if you want a newline, you must put in a `\n` to your
-string.
-
-But, wait! That output still doesn't look right. This is where it becomes a
-little more advanced.
+**Note**: The `print` and `puts` methods have other options available for
+formatting text output. Both `printf` and `puts` are capable of doing things
+like have a leading zero even if the number is under 10, (for example: 01, 02,
+03, etc.), or correctly formatting floats in monetary calculations (for example:
+displaying "$13.50" instead of "$13.5"). These are somewhat more advanced
+concepts that require mastering [formatting options], but they will most likely
+come in handy as you work more with numbers in Ruby.
 
 ## Recognize the Difference Between `p` and Other Print Methods
 
+We've mentioned that both `puts` and `print` do not return values -- instead
+they return `nil`. There's actually a method that both _outputs_ the data and
+gives a _return value_; this method is `p`. 
 
+```ruby
+p "Hello World"
+ => "Hello World"
+ ```
+
+It actually does more than just that -- It's designed for debugging. `p` is a
+method that shows a more "raw" version of an object. For example:
+
+```ruby
+puts "Hello World\n"
+Hello World
+ => nil
+
+print "Hello World\n"
+Hello World
+ => nil
+
+p "Hello World\n"
+ => "Hello World\n"
+ ```
+
+Newline (`\n`) and other encoded characters are normally invisible, but if you
+want to look for these characters, or you want to make sure some value is
+correct, then you could use `p`. Also, you'll notice in the output that the `"`
+are not removed when displaying the text in the command line.
 
 ## Conclusion
 
-Knowing how methods print and return values is crucial as you'll be using them
-constantly in programs both big and small. Knowing the difference between puts
-and return will help you avoid a common pitfalls.
-
-Return values are how different parts of your program communicate with one
-another. You don't have to worry too much about this for now, but as you start
-to build more complicated programs, you'll find that the return value of one
-method might be operated on by a subsequent method. Don't forget to watch out
-for those `nil`s!
+We’ve talked about the differences between `puts`, `print` & `p` in Ruby.
+Understanding how methods print and format values can offer feedback to users
+while programs are being run. This can be a line asking for user input, letting
+the user know that a process is running and how much time has elapsed,or
+printing to the command line while debugging, or troubleshooting, code.
 
 ## Resources
 
 ["Understanding The Differences Between Puts, Print & P"](https://www.rubyguides.com/2018/10/puts-vs-print/)
-[formatting options]:(https://alvinalexander.com/programming/printf-format-cheat-sheet)
-["Mad Libs"]:http://www.madlibs.com/
