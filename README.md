@@ -50,9 +50,7 @@ anything in the console.
 
 You can also see `nil` after the text is printed in the command line. This is
 the _return value_. The return value is the value returned by a Ruby expression,
-but when we use `puts` and `print`, we are returned `nil`, or "nothing". Keep
-in mind that because of Ruby's _implicit return_ that if the last line of a method
-is a `puts` or `print` statement, the return type for the method will bw `nil`.
+but when we use `puts` and `print`, we are returned `nil`, or "nothing".
 
 > **Note**: The `print` and `puts` methods have other options available for
 formatting text output. Both `printf` and `puts` are capable of doing things
