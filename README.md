@@ -49,16 +49,18 @@ Without `puts` or `print`, Ruby will evaluate the code, but does not display
 anything in the console.
 
 You can also see `nil` after the text is printed in the command line. This is
-the _return value_. The return value is the object returned by a Ruby method,
-but when we use `puts` and `print`, we are returned `nil`, or "nothing".
+the _return value_. The return value is the value returned by a Ruby expression,
+but when we use `puts` and `print`, we are returned `nil`, or "nothing". Keep
+in mind that because of Ruby's _implicit return_ that if the last line of a method
+is a `puts` or `print` statement, the return type for the method will bw `nil`.
 
-**Note**: The `print` and `puts` methods have other options available for
+> **Note**: The `print` and `puts` methods have other options available for
 formatting text output. Both `printf` and `puts` are capable of doing things
 like have a leading zero even if the number is under 10, (for example: 01, 02,
 03, etc.), or correctly formatting floats in monetary calculations (for example:
 displaying "$13.50" instead of "$13.5"). These are somewhat more advanced
-concepts that require mastering [formatting options], but they will most likely
-come in handy as you work more with numbers in Ruby.
+concepts that require mastering [formatting options]. While you don't need them
+at this point, if you need to do data formatting, you'll want to master these.
 
 ## Recognize the Difference Between `p` and Other Print Methods
 
@@ -87,7 +89,7 @@ p "Hello World\n"
  => "Hello World\n"
  ```
 
-Newline (`\n`) and other encoded characters are normally invisible, but if you
+Newline (`\n`) and other "system" characters are normally invisible, but if you
 want to look for these characters, or you want to make sure some value is
 correct, then you could use `p`. Also, you'll notice in the output that the `"`
 are not removed when displaying the text in the command line.
