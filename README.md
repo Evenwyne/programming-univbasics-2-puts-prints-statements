@@ -2,47 +2,69 @@
 
 ## Learning Goals
 
-- Define and distinguish `puts` from `print`
-- Recognize the difference between `p` and other print methods
+- Use `puts` statement to send content to the screen
+- Force text to the next line with the newline character `\n`
+- Use `print` statement to send content to the screen
+- Use `p` statement to send content to the screen and return a value
+- Recognize the difference between `p` and other output methods
 
 ## Introduction
 
-There are a few ways to output text in Ruby. In previous lessons, we've used the
-keyword `puts` in order to display text in the console, but we can also use
-`print`. How are these different? And when should you use one or the other?
+As we said in the introduction, in the previous section of Programming as
+Conversation, you learned a lot of _expressions_. We're going to teach you your
+first _statements_ right now. These are the statements that print your
+`String`s to the screen:
 
-We'll cover how the `puts` and `print` commands display Ruby code in the console,
-and its limitations.
+* `puts`
+* `print`
+* `p`
 
-## Define and Distinguish `puts` From `print`
+There are others, but `puts` and `p` are going to be your best buddies through
+your career learning to code in Ruby. We'll cover these old reliable friends
+right now.
 
-The `puts` (short for "out**put s**tring") and `print` commands are both used to
-display the results of evaluating Ruby code in the console. The primary
-difference between them is that `puts` adds a new line (represented by the `\n`
-character encoding) after executing, and `print` does not.
+## Use `puts` statement to send content to the screen
+
+The command to "out**put s**tring" to the screen is `puts`. This command prints
+the `String` you supply it as well as a newline character. That's the invisible
+character that tells the cursor to go to the next line. In IRB you can try
 
 ```ruby
-def print_hello
-  print "Hello!"
-  print "Hello!"
-  print "Hello!"
-end
-
-print_hello
-# > Hello!Hello!Hello! => nil
-
-def puts_hello
-  puts "Hello!"
-  puts "Hello!"
-  puts "Hello!"
-end
-
-puts_hello
-# > Hello!
-# > Hello!
-# > Hello!
-#  => nil
+puts "hi"
+hi
+ => nil
 ```
+
+versus:
+
+```ruby
+2.3.3 :002 > print "hi"
+hi => nil
+2.3.3 :003 >
+```
+
+Did you see how `puts` "pushed" the `=> nil` to the next line? That's the
+"newline" character that `puts` appends to the end.
+
+## Force Text to the Next Line With the Newline Character `\n`
+
+Ruby saw an invisible `\n` character (which represents the `\n`ewline) at the
+end of the `String` given to `puts`.
+
+When the newline character is inside a `String` it causes the next letter to
+start on the next line. Try out `puts "Edvard\nMunch"` in IRB to see `\n` do its
+thing.
+
+## Use `print` Statement to Send Content to the Screen
+
+The `print` statements prints out the given `String` with no newline (`\n`)
+character at the end. You use it like `puts` though.
+
+```ruby
+print "Razmatazz" #=> "Razmatazz"
+```
+
+## Use `p` Statement to Send Content to the Screen and Return a Value
 
 The methods `puts` and `print` tell the program to display specific information.
 Without `puts` or `print`, Ruby will evaluate the code, but does not display
@@ -52,26 +74,18 @@ You can also see `nil` after the text is printed in the command line. This is
 the _return value_. The return value is the value returned by a Ruby expression,
 but when we use `puts` and `print`, we are returned `nil`, or "nothing".
 
-> **Note**: The `print` and `puts` methods have other options available for
-formatting text output. Both `printf` and `puts` are capable of doing things
-like have a leading zero even if the number is under 10, (for example: 01, 02,
-03, etc.), or correctly formatting floats in monetary calculations (for example:
-displaying "$13.50" instead of "$13.5"). These are somewhat more advanced
-concepts that require mastering [formatting options]. While you don't need them
-at this point, if you need to do data formatting, you'll want to master these.
+If you want to print a value **and** return it, you should use `p`:
 
-## Recognize the Difference Between `p` and Other Print Methods
-
-We've mentioned that both `puts` and `print` do not return values -- instead
-they return `nil`. There's actually a method that both _outputs_ the data and
-gives a _return value_; this method is `p`. 
 
 ```ruby
 p "Hello World"
  => "Hello World"
  ```
 
-It actually does more than just that -- It's designed for debugging. `p` is a
+> **CONFIRM UNDERSTANDING**: Compare the return result of `p` versus `puts` to
+> make sure you see the difference between returning `nil` and `"Hello World"`.
+
+It actually does more than just that -- it's designed for debugging. `p` is a
 method that shows a more "raw" version of an object. For example:
 
 ```ruby
@@ -94,7 +108,7 @@ are not removed when displaying the text in the command line.
 
 ## Conclusion
 
-We’ve talked about the differences between `puts`, `print` & `p` in Ruby.
+We've talked about the differences between `puts`, `print` & `p` in Ruby.
 Understanding how methods print and format values can offer feedback to users
 while programs are being run. This can be a line asking for user input, letting
 the user know that a process is running and how much time has elapsed,or
