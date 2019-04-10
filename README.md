@@ -52,7 +52,7 @@ Ruby saw an invisible `\n` character (which represents the `\n`ewline) at the
 end of the `String` given to `puts`.
 
 When the newline character is inside a `String` it causes the next letter to
-start on the next line. Try out `puts "EdvardnMunch"` in IRB to see `\n` do its
+start on the next line. Try out `puts "Edvard\nMunch"` in IRB to see `\n` do its
 thing.
 
 ## Use `print` Statement to Send Content to the Screen
@@ -64,7 +64,7 @@ character at the end. You use it like `puts` though.
 print "Razmatazz" #=> "Razmatazz"
 ```
 
-## Use `p` statement to send content to the screen and return a value
+## Use `p` Statement to Send Content to the Screen and Return a Value
 
 The methods `puts` and `print` tell the program to display specific information.
 Without `puts` or `print`, Ruby will evaluate the code, but does not display
