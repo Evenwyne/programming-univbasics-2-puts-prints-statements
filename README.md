@@ -27,20 +27,29 @@ right now.
 
 The command to "out**put s**tring" to the screen is `puts`. This command prints
 the `String` you supply it as well as a newline character. That's the invisible
-character that tells the cursor to go to the next line. In IRB you can try
+character that tells the cursor to go to the next line. In IRB you can try:
 
 ```ruby
 puts "hi"
+```
+
+and get back:
+
+```text
 hi
  => nil
 ```
 
-versus:
+Compare this to using:
 
 ```ruby
-2.3.3 :002 > print "hi"
+print "hi"
+```
+
+which will output:
+
+```text
 hi => nil
-2.3.3 :003 >
 ```
 
 Did you see how `puts` "pushed" the `=> nil` to the next line? That's the
