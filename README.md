@@ -2,10 +2,10 @@
 
 ## Learning Goals
 
-- Use `puts` statement to send content to the screen
+- Use the `puts` statement to send content to the screen
 - Force text to the next line with the newline character `\n`
-- Use `print` statement to send content to the screen
-- Use `p` statement to send content to the screen and return a value
+- Use the `print` statement to send content to the screen
+- Use the `p` statement to send content to the screen and return a value
 - Recognize the difference between `p` and other output methods
 
 ## Introduction
@@ -22,7 +22,7 @@ first _statements_ right now. These are the statements that print your
 There are others, but `puts` and `p` are going to be your best buddies through
 your career learning to code in Ruby.
 
-## Use `puts` statement to send content to the screen
+## Use the `puts` statement to send content to the screen
 
 The command to "out**put s**tring" to the screen is `puts`. This command prints
 the `String` you supply it as well as a newline character. That's the invisible
@@ -59,7 +59,7 @@ move things to the next line? We'll address that now.
 ## Force Text to the Next Line With the Newline Character `\n`
 
 Ruby saw an invisible `\n` character (which represents the `\n`ewline) at the
-end of the `String` given to `puts`. Normally we'd thinkm of `\` + `n` as
+end of the `String` given to `puts`. Normally we'd think of `\` + `n` as
 ***two*** characters, but this is a special case. Special characters are
 actually two keystrokes, but they're ***seen*** as one character.
 
@@ -67,7 +67,7 @@ When the newline character is inside a `String`, it causes the next letter to
 start on the next line. Try out `puts "Edvard\nMunch"` in IRB to see `\n` do its
 thing.
 
-## Use `print` Statement to Send Content to the Screen
+## Use the `print` Statement to Send Content to the Screen
 
 The `print` statements prints out the given `String` with no newline (`\n`)
 character at the end. You use it like `puts` though.
@@ -76,7 +76,7 @@ character at the end. You use it like `puts` though.
 print "Razmatazz" #=> "Razmatazz"
 ```
 
-## Use `p` Statement to Send Content to the Screen and Return a Value
+## Use the `p` Statement to Send Content to the Screen and Return a Value
 
 The methods `puts` and `print` tell the program to display what comes after
 their name.
@@ -145,7 +145,7 @@ are not removed when displaying the text in the command line.
 We've talked about the differences between `puts`, `print` & `p` in Ruby.
 Understanding how methods print and format values can offer feedback to users
 while programs are being run. This can be a line asking for user input, letting
-the user know that a process is running and how much time has elapsed,or
+the user know that a process is running and how much time has elapsed, or
 printing to the command line while debugging, or troubleshooting, code.
 
 ## Resources
