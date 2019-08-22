@@ -13,15 +13,14 @@
 As we said in the introduction, in the previous section of Programming as
 Conversation, you learned a lot of _expressions_. We're going to teach you your
 first _statements_ right now. These are the statements that print your
-`String`s to the screen:
+`String`s to the screen. They are:
 
 * `puts`
 * `print`
 * `p`
 
 There are others, but `puts` and `p` are going to be your best buddies through
-your career learning to code in Ruby. We'll cover these old reliable friends
-right now.
+your career learning to code in Ruby.
 
 ## Use `puts` statement to send content to the screen
 
@@ -53,14 +52,18 @@ hi => nil
 ```
 
 Did you see how `puts` "pushed" the `=> nil` to the next line? That's the
-"newline" character that `puts` appends to the end.
+"newline" character that `puts` appends to the end. You also probably noticed
+that `print` _did not_ supply this invisible newline character. Why did `puts`
+move things to the next line? We'll address that now.
 
 ## Force Text to the Next Line With the Newline Character `\n`
 
 Ruby saw an invisible `\n` character (which represents the `\n`ewline) at the
-end of the `String` given to `puts`.
+end of the `String` given to `puts`. Normally we'd thinkm of `\` + `n` as
+***two*** characters, but this is a special case. Special characters are
+actually two keystrokes, but they're ***seen*** as one character.
 
-When the newline character is inside a `String` it causes the next letter to
+When the newline character is inside a `String`, it causes the next letter to
 start on the next line. Try out `puts "Edvard\nMunch"` in IRB to see `\n` do its
 thing.
 
@@ -75,13 +78,34 @@ print "Razmatazz" #=> "Razmatazz"
 
 ## Use `p` Statement to Send Content to the Screen and Return a Value
 
-The methods `puts` and `print` tell the program to display specific information.
-Without `puts` or `print`, Ruby will evaluate the code, but does not display
-anything in the console.
+The methods `puts` and `print` tell the program to display what comes after
+their name.
 
-You can also see `nil` after the text is printed in the command line. This is
-the _return value_. The return value is the value returned by a Ruby expression,
-but when we use `puts` and `print`, we are returned `nil`, or "nothing".
+If the following is run in a program, it _will_ print text as the program runs.
+
+```ruby
+puts "Razzle!"
+# => nil
+```
+
+If you just enter the name of a variable or provide an expression, Ruby
+evaluates it, but doesn't *emit* it if the program is run outside of IRB.
+
+If the following is run in a program, it _will not_ print text as the program
+runs.
+
+```ruby
+"Razzle!"
+=> "Razzle!"
+```
+
+***Bottom line: To print output for debugging, you need to put your expression
+or value after `puts`, `print`, or `p`***
+
+**VERY IMPORTANT**: You can see that `nil` is returned after the text is
+printed in IRB. This is the _return value_. The return value is the value
+returned by a Ruby expression. ***THE RETURN VALUE OF A CALL TO `puts` AND
+`print` IS `nil`***. Be very careful with this!
 
 If you want to print a value **and** return it, you should use `p`:
 
@@ -94,8 +118,9 @@ p "Hello World"
 > **CONFIRM UNDERSTANDING**: Compare the return result of `p` versus `puts` to
 > make sure you see the difference between returning `nil` and `"Hello World"`.
 
-It actually does more than just that -- it's designed for debugging. `p` is a
-method that shows a more "raw" version of an object. For example:
+The `p` method is especially handy when debugging. It "shows" hidden characters
+like the newline character `"\n"`. `p` shows a more "raw" version of an object.
+For example:
 
 ```ruby
 puts "Hello World\n"
