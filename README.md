@@ -12,7 +12,7 @@
 
 As we said in the introduction, in the previous section of Programming as
 Conversation, you learned a lot of _expressions_. We're going to teach you your
-first _statements_ right now. These are the statements that print your
+first _statements_ right now. These are the statements that print
 `String`s to the screen. They are:
 
 * `puts`
@@ -25,7 +25,7 @@ your career learning to code in Ruby.
 ## Use the `puts` statement to send content to the screen
 
 The command to "out**put s**tring" to the screen is `puts`. This command prints
-the `String` you supply it as well as a newline character. That's the invisible
+the `String` you supply it *as well as* a newline character. That's the invisible
 character that tells the cursor to go to the next line. In IRB you can try:
 
 ```ruby
@@ -53,19 +53,24 @@ hi => nil
 
 Did you see how `puts` "pushed" the `=> nil` to the next line? That's the
 "newline" character that `puts` appends to the end. You also probably noticed
-that `print` _did not_ supply this invisible newline character. Why did `puts`
-move things to the next line? We'll address that now.
+that `print` _did not_ supply this invisible newline character. The `puts`
+command adds the newline character, the `print` command does not.
 
 ## Force Text to the Next Line With the Newline Character `\n`
 
 Ruby saw an invisible `\n` character (which represents the `\n`ewline) at the
 end of the `String` given to `puts`. Normally we'd think of `\` + `n` as
 ***two*** characters, but this is a special case. Special characters are
-actually two keystrokes, but they're ***seen*** as one character.
+actually two keystrokes, but they're ***seen*** by Ruby as one character.
 
 When the newline character is inside a `String`, it causes the next letter to
 start on the next line. Try out `puts "Edvard\nMunch"` in IRB to see `\n` do its
-thing.
+thing. While we're here, it's worth noting that there are other "invisible"
+characters like `\n`. Another similar one is `\t` which is for the TAB
+character. If you want to "indent" your output try:
+`puts The Painter\n\tEdvard\n\t\tMunch`. These invisible characters are handy
+for when you need your Ruby code to print something kinda like an outline
+or a report. We'll talk a _lot_ more about that later.
 
 ## Use the `print` Statement to Send Content to the Screen
 
@@ -100,7 +105,7 @@ runs.
 ```
 
 ***Bottom line: To print output for debugging, you need to put your expression
-or value after `puts`, `print`, or `p`***
+(or value) after `puts`, `print`, or `p`***
 
 **VERY IMPORTANT**: You can see that `nil` is returned after the text is
 printed in IRB. This is the _return value_. The return value is the value
